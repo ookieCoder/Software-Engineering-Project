@@ -11,7 +11,7 @@ export default function Home() {
     const fetchdata = async () => {
       try {
         const fetched = await axios.get("/api/sample");
-        // console.log("API Response:", fetched.data);
+        // console.log("Hello:", fetched.data);
         setCards(fetched.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -60,11 +60,11 @@ export default function Home() {
             <button className="w-full bg-pink-500 text-white p-2 mt-2 rounded">Instagram</button>
             <button className="w-full bg-blue-700 text-white p-2 mt-2 rounded">LinkedIn</button>
           </div>
-          <h3 className="font-bold text-black mt-4">Connect</h3>
+          {/* <h3 className="font-bold text-black mt-4">Connect</h3>
           <div className="p-4 mb-5 rounded-lg shadow-lg border w-80 text-center">
             <button className="w-full bg-green-500 text-white p-2 mt-2 rounded">Send Message via WhatsApp</button>
             <button className="w-full bg-blue-700 text-white p-2 mt-2 rounded">Connect via LinkedIn</button>
-          </div>
+          </div> */}
         </div>
 
         {/* Latest Post Section */}
@@ -83,7 +83,7 @@ export default function Home() {
         {/* Contact Section */}
         <div className="p-6 col-span-1 justify-items-center">
 
-          <h3 className="text-lg font-semibold text-gray-800 mb-1">T&P Office</h3>
+          <h3 className="text-lg font-semibold text-gray-800 mb-1">T&P Incharge</h3>
           <div className=" p-6 rounded-xl shadow-lg border w-80 text-center mb-5">
 
             {/* Profile Image */}
@@ -92,20 +92,20 @@ export default function Home() {
             </div>
 
             {/* Name & Designation */}
-            <h4 className="font-bold text-gray-900 mt-4 text-lg">Prof. G.S. Sodhi</h4>
-            <p className="text-gray-600 text-sm">Training and Placement Officer</p>
+            <h4 className="font-bold text-gray-900 mt-4 text-lg">Prof. XYZ</h4>
+            <p className="text-gray-600 text-sm">Training and Placement Incharge</p>
 
             {/* Contact Details */}
             <div className="mt-4 space-y-2">
               <div className="flex items-center bg-gray-200 text-gray-700 text-sm px-3 py-2 rounded-lg">
-                📞 <span className="ml-2">+91-98722-19178</span>
+                📞 <span className="ml-2">+91-987654321</span>
               </div>
               <div className="flex items-center bg-gray-200 text-gray-700 text-sm px-3 py-2 rounded-lg">
-                ✉️ <span className="ml-2">tpo@gndec.ac.in</span>
+                ✉️ <span className="ml-2">tpi@example.com</span>
               </div>
             </div>
           </div>
-          <h3 className="text-lg font-semibold text-gray-800 mb-1">T&P Office</h3>
+          <h3 className="text-lg font-semibold text-gray-800 mb-1">T&P Officer</h3>
           <div className=" p-6 rounded-xl shadow-lg border w-80 text-center">
 
             {/* Profile Image */}
@@ -114,16 +114,16 @@ export default function Home() {
             </div>
 
             {/* Name & Designation */}
-            <h4 className="font-bold text-gray-900 mt-4 text-lg">Prof. G.S. Sodhi</h4>
+            <h4 className="font-bold text-gray-900 mt-4 text-lg">Mr./Ms. PQRS</h4>
             <p className="text-gray-600 text-sm">Training and Placement Officer</p>
 
             {/* Contact Details */}
             <div className="mt-4 space-y-2">
               <div className="flex items-center bg-gray-200 text-gray-700 text-sm px-3 py-2 rounded-lg">
-                📞 <span className="ml-2">+91-98722-19178</span>
+                📞 <span className="ml-2">+91-987654321</span>
               </div>
               <div className="flex items-center bg-gray-200 text-gray-700 text-sm px-3 py-2 rounded-lg">
-                ✉️ <span className="ml-2">tpo@gndec.ac.in</span>
+                ✉️ <span className="ml-2">tpo@example.com</span>
               </div>
             </div>
           </div>

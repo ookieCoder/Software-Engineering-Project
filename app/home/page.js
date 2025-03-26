@@ -16,7 +16,7 @@ export default function Home() {
             </div>
           </div>
           <div className="md:w-1/2 mt-6 md:mt-0 text-center">
-            <img src="hero-image.jpg" alt="Students at IIIT Vadodara" className="w-full max-w-md mx-auto rounded-lg shadow-lg" />
+            <img src="bg.jpg" alt="Students at IIIT Vadodara" className="w-full max-w-md mx-auto rounded-lg shadow-lg" />
           </div>
         </div>
       </div>

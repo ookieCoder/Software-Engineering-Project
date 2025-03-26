@@ -3,12 +3,13 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Footer from "../foot/footer";
 import Navbar from "../nav/navbar";
+import { Router } from "next/router";
 
 export default function Auth() {
     const router = useRouter();
     const [isOfficer, setIsOfficer] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
-    const [formData, setFormData] = useState({ name: "", email: "", password: "" });
+    const [formData, setFormData] = useState({ email: "", password: "" });
     const [error, setError] = useState("");
 
     const handleChange = (e) => {
@@ -17,7 +18,33 @@ export default function Auth() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        alert("Handle Submit");
+        setError("");
+        try {
+            const endpoint = (isAdmin || isOfficer) ? "/api/auth/admin" : "/api/auth/student";
+            const response = await fetch(endpoint, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+            const data = await response.json();
+            if (response.ok) {
+                sessionStorage.setItem("role", (isAdmin || isOfficer) ? data.role : "Student");
+                if(sessionStorage.getItem("role") === "Student") {
+                    router.push("/student/dashboard");
+                } else if(isOfficer && data.role === "Officer") {
+                    router.push("/officer/dashboard");
+                } else if(isAdmin && data.role === "Admin") {
+                    router.push("/admin/dashboard");
+                } else {
+                    setError("Invalid Credentials");
+                }
+            } else {
+                setError(data.message || "Authentication failed. Please try again.");
+            }
+        } catch (error) {
+            setError("Something went wrong. Please try again.");
+            console.error("Authentication error:", error);
+        }
     };
 
     return (
